@@ -83,7 +83,7 @@ export default function Certifications() {
             <div className="text-gray-400 text-center mb-4">
               {icons.Plus}
             </div>
-            <h3 className="font-mono text-lg font-semibold text-center">Continuing Education</h3>
+            <h3 className="font-mono text-lg font-semibold text-center">Pursuing New Certifications</h3>
             <p className="text-sm text-gray-400 text-center mt-2">Always expanding my knowledge in cybersecurity</p>
           </motion.div>
         </motion.div>

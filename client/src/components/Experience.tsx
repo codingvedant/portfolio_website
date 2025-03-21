@@ -24,6 +24,16 @@ export default function Experience() {
     CodeSquare: <CodeSquare className="text-[#1A1A1A]" />
   };
 
+  // Function to get the logo based on company name
+  const getCompanyLogo = (company: string) => {
+    if (company.includes("RAPIDOPS")) {
+      return "/assets/rapidops_logo.jpg";
+    } else if (company.includes("EF EDUCATION")) {
+      return "/assets/EF_logo.jpeg";
+    }
+    return null;
+  };
+
   return (
     <section id="experience" className="py-16 md:py-24 px-4 transition-all duration-500">
       <div className="container mx-auto">
@@ -79,9 +89,19 @@ export default function Experience() {
                       
                       <div className="md:w-1/2 md:pl-12 order-3">
                         <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4">
-                          <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
-                            {icons[experience.icon as keyof typeof icons]}
-                          </div>
+                          {getCompanyLogo(experience.company) ? (
+                            <div className="w-48 h-48 rounded-lg flex items-center justify-center p-3 bg-[#1A1A1A] border border-[#00FF8C]/20">
+                              <img 
+                                src={getCompanyLogo(experience.company) || ''} 
+                                alt={`${experience.company} logo`} 
+                                className="max-w-full max-h-full object-contain"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
+                              {icons[experience.icon as keyof typeof icons]}
+                            </div>
+                          )}
                         </div>
                         <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
                         <p className="text-gray-400">{experience.location}</p>
@@ -92,9 +112,19 @@ export default function Experience() {
                     <>
                       <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 order-2 md:order-1 md:text-right">
                         <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4 mx-auto md:ml-auto md:mr-0">
-                          <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
-                            {icons[experience.icon as keyof typeof icons]}
-                          </div>
+                          {getCompanyLogo(experience.company) ? (
+                            <div className="w-48 h-48 rounded-lg flex items-center justify-center p-3 bg-[#1A1A1A] border border-[#00FF8C]/20">
+                              <img 
+                                src={getCompanyLogo(experience.company) || ''} 
+                                alt={`${experience.company} logo`} 
+                                className="max-w-full max-h-full object-contain"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
+                              {icons[experience.icon as keyof typeof icons]}
+                            </div>
+                          )}
                         </div>
                         <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
                         <p className="text-gray-400">{experience.location}</p>

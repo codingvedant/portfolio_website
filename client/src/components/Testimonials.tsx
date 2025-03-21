@@ -32,7 +32,7 @@ export default function Testimonials() {
   };
   
   return (
-    <section id="testimonials" className={`py-16 md:py-24 px-4 transition-all duration-500 ${theme === 'dark' ? 'bg-opacity-70' : 'bg-opacity-5'} section-bg-primary`}>
+    <section id="testimonials" className="py-16 md:py-24 px-4 transition-all duration-500">
       <div className="container mx-auto">
         <motion.div 
           className="mb-12 text-center"
@@ -56,10 +56,10 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
-              className={`p-8 rounded-lg shadow-lg mb-10 theme-card`}
+              className="p-8 rounded-lg mb-10 border border-[#00FF8C]/20 bg-transparent shadow-[0_0_15px_rgba(0,255,140,0.1)]"
             >
               <div className="flex items-start gap-4">
-                <div className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/20 border border-[#00FF8C]/30 text-[#00FF8C] font-bold text-xl`}>
+                <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/10 border border-[#00FF8C]/30 text-[#00FF8C] font-bold text-xl">
                   {getInitials(testimonialsData[activeIndex].name)}
                 </div>
                 
@@ -67,7 +67,7 @@ export default function Testimonials() {
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-xl font-semibold">{testimonialsData[activeIndex].name}</h3>
-                      <p className={`text-sm theme-text mb-2`}>{testimonialsData[activeIndex].position}</p>
+                      <p className="text-sm text-gray-400 mb-2">{testimonialsData[activeIndex].position}</p>
                     </div>
                     <span className={`text-xs px-2 py-1 rounded-full border ${relationColors[testimonialsData[activeIndex].relation] || "bg-gray-700/20 text-gray-300 border-gray-700/30"}`}>
                       {testimonialsData[activeIndex].relation}
@@ -76,7 +76,7 @@ export default function Testimonials() {
                   
                   <div className="mt-4 relative">
                     <MessageSquareQuote className="absolute -top-2 -left-2 w-5 h-5 text-[#00FF8C] opacity-40" />
-                    <p className={`pl-4 theme-text italic`}>"{testimonialsData[activeIndex].testimonial}"</p>
+                    <p className="pl-4 text-white italic">"{testimonialsData[activeIndex].testimonial}"</p>
                   </div>
                 </div>
               </div>
@@ -102,11 +102,7 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={prevTestimonial}
-                className={`p-2 rounded-full ${
-                  theme === 'dark' 
-                    ? 'bg-[#1A1A1A] text-white hover:bg-[#1A1A1A]/80 border border-gray-800' 
-                    : 'bg-white text-[#1A1A1A] hover:bg-gray-100 border border-gray-200'
-                } flex items-center justify-center shadow-md`}
+                className="p-2 rounded-full bg-transparent border border-[#00FF8C]/30 text-[#00FF8C] hover:bg-[#00FF8C]/10 flex items-center justify-center"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -116,11 +112,7 @@ export default function Testimonials() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={nextTestimonial}
-                className={`p-2 rounded-full ${
-                  theme === 'dark' 
-                    ? 'bg-[#1A1A1A] text-white hover:bg-[#1A1A1A]/80 border border-gray-800' 
-                    : 'bg-white text-[#1A1A1A] hover:bg-gray-100 border border-gray-200'
-                } flex items-center justify-center shadow-md`}
+                className="p-2 rounded-full bg-transparent border border-[#00FF8C]/30 text-[#00FF8C] hover:bg-[#00FF8C]/10 flex items-center justify-center"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-5 h-5" />

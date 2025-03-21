@@ -1,16 +1,16 @@
 export const terminalCommands = {
   welcome: [
-    { text: '$ ./get_profile.sh', type: 'command' },
+    { text: '$ ./get_profile.sh', type: 'command', color: 'text-red-500' },
     { text: 'Cybersecurity professional with expertise in:', type: 'output' },
     { text: '> Vulnerability Assessment', type: 'output' },
     { text: '> Security Protocols', type: 'output' },
     { text: '> Threat Intelligence', type: 'output' },
     { text: '> Cloud Security (Azure, AWS)', type: 'output' },
     { text: '> Endpoint Security', type: 'output' },
-    { text: '$ echo $LOCATION', type: 'command' },
+    { text: '$ echo $LOCATION', type: 'command', color: 'text-red-500' },
     { text: 'Ahmedabad, India', type: 'output' },
-    { text: '$ cat contact.txt', type: 'command' },
-    { text: 'P: +91 9408765325 | E: fxrhanansari@gmail.com', type: 'output' },
+    { text: '$ cat contact.txt', type: 'command', color: 'text-red-500' },
+    { text: 'E: fxrhanansari@gmail.com', type: 'output' },
   ],
   skills: [
     { text: '$ ls -la /skills', type: 'command' },

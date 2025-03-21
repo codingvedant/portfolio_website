@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function Navbar() {
@@ -50,14 +49,11 @@ export default function Navbar() {
             <a href="#skills" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Skills</a>
             <a href="#certifications" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Certifications</a>
             <a href="#testimonials" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Testimonials</a>
-            <a href="#resources" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Resources</a>
             <a href="#contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Contact</a>
           </div>
-          <ThemeToggle />
         </div>
         
         <div className="md:hidden flex items-center space-x-4">
-          <ThemeToggle />
           <button 
             onClick={toggleMenu} 
             className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] focus:outline-none`}
@@ -109,13 +105,6 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             Testimonials
-          </a>
-          <a 
-            href="#resources" 
-            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
-            onClick={closeMenu}
-          >
-            Resources
           </a>
           <a 
             href="#contact" 

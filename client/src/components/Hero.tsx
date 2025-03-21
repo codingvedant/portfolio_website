@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import useTypewriter from "@/hooks/useTypewriter";
 
 export default function Hero() {
@@ -56,17 +55,17 @@ export default function Hero() {
             <span className="ml-4 text-sm text-gray-400 font-mono">farhan@security:~</span>
           </div>
           <div className="font-mono text-sm md:text-base">
-            <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-white">./get_profile.sh</span></p>
+            <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">./get_profile.sh</span></p>
             <p className="mb-1">Cybersecurity professional with expertise in:</p>
             <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Vulnerability Assessment</p>
             <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Security Protocols</p>
             <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Threat Intelligence</p>
             <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Cloud Security (Azure, AWS)</p>
             <p className="mb-3"><span className="text-[#00FF8C]">{'>'}</span> Endpoint Security</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-white">echo $LOCATION</span></p>
+            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">echo $LOCATION</span></p>
             <p className="mb-3">Ahmedabad, India</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-white">cat contact.txt</span></p>
-            <p className="mb-1">P: +91 9408765325 | E: fxrhanansari@gmail.com</p>
+            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">cat contact.txt</span></p>
+            <p className="mb-1">E: fxrhanansari@gmail.com</p>
             <p className="mb-1 flex items-center">
               <span className="mr-2">LinkedIn:</span>
               <a 
@@ -76,6 +75,28 @@ export default function Hero() {
                 className="text-[#0066CC] hover:text-[#00FF8C] transition-colors duration-300"
               >
                 linkedin.com/in/ansari-farhan
+              </a>
+            </p>
+            <p className="mb-1 flex items-center">
+              <span className="mr-2">GitHub:</span>
+              <a 
+                href="https://github.com/fxrhan" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#6e5494] hover:text-[#00FF8C] transition-colors duration-300"
+              >
+                github.com/fxrhan
+              </a>
+            </p>
+            <p className="mb-1 flex items-center">
+              <span className="mr-2">X.com:</span>
+              <a 
+                href="https://x.com/fxrhanansari" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#1DA1F2] hover:text-[#00FF8C] transition-colors duration-300"
+              >
+                x.com/fxrhanansari
               </a>
             </p>
             <p className="mb-1 mt-3">
@@ -89,29 +110,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+          className="flex flex-col items-center"
         >
-          <a 
-            href="#about" 
-            className="px-8 py-3 bg-[#1A1A1A] border border-[#00FF8C] rounded-md hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 font-mono"
-          >
-            About Me
-          </a>
-          <a 
-            href="#contact" 
-            className="px-8 py-3 border border-[#0066CC] rounded-md hover:bg-[#0066CC] transition-all duration-300 font-mono"
-          >
-            Contact
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        >
-          <ArrowDown className="h-6 w-6 text-[#00FF8C]" />
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a 
+              href="#about" 
+              className="px-8 py-3 bg-[#1A1A1A] border border-[#00FF8C] rounded-md hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 font-mono"
+            >
+              About Me
+            </a>
+            <a 
+              href="#contact" 
+              className="px-8 py-3 border border-[#0066CC] rounded-md hover:bg-[#0066CC] transition-all duration-300 font-mono"
+            >
+              Contact
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

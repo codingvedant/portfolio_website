@@ -21,10 +21,6 @@
   body {
     @apply font-sans antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* Dark mode (default) */
-  body {
     background-color: var(--background-dark);
     color: var(--text-dark);
   }
@@ -72,12 +68,11 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  /* Dark mode terminal styling */
+  /* Terminal styling based on theme */
   body.dark .terminal-container {
     background-color: rgba(0, 0, 0, 0.7);
   }
   
-  /* Light mode terminal styling */
   body:not(.dark) .terminal-container {
     background-color: rgba(245, 245, 245, 0.9);
     color: var(--text-light);
@@ -96,12 +91,15 @@
     animation: gradientMove 4s linear infinite;
   }
   
-  /* Dark theme section styling */
+  /* Theme-based section styling */
+  .section-bg-primary {
+    transition: background-color 0.3s ease;
+  }
+  
   body.dark .section-bg-primary {
     background-color: var(--card-dark);
   }
   
-  /* Light theme section styling */
   body:not(.dark) .section-bg-primary {
     background-color: var(--card-light);
     border-color: #e0e0e0;
@@ -124,6 +122,10 @@
   }
   
   /* Text color for paragraphs */
+  .theme-text {
+    transition: color 0.3s ease;
+  }
+  
   body.dark .theme-text {
     color: #9ca3af; /* gray-400 in dark mode */
   }
@@ -132,6 +134,7 @@
     color: #4b5563; /* gray-600 in light mode */
   }
   
+  /* Animations */
   @keyframes gradientMove {
     0% {
       background-position: 0% 0%;

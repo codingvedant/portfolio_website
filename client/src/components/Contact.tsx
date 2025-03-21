@@ -48,7 +48,19 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await apiRequest("POST", "/api/contact", formData);
+      // For Netlify Forms
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
       
       toast({
         title: "Message sent",
@@ -63,6 +75,7 @@ export default function Contact() {
         message: ""
       });
     } catch (error) {
+      console.error("Form submission error:", error);
       toast({
         title: "Error sending message",
         description: "There was an error sending your message. Please try again later.",
@@ -110,12 +123,17 @@ export default function Contact() {
                 <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-white">./send_message.sh</span></p>
                 <p className="mb-4">Initiating secure contact protocol...</p>
                 
-                <form className="space-y-4" onSubmit={handleSubmit}>
+                <form className="space-y-4" onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                  </p>
                   <div>
                     <label htmlFor="name" className="block text-[#00FF8C] mb-1">NAME:</label>
                     <input 
                       type="text" 
-                      id="name" 
+                      id="name"
+                      name="name" 
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full bg-gray-900 border border-gray-700 rounded p-2 focus:border-[#00FF8C] focus:outline-none text-white"
@@ -127,7 +145,8 @@ export default function Contact() {
                     <label htmlFor="email" className="block text-[#00FF8C] mb-1">EMAIL:</label>
                     <input 
                       type="email" 
-                      id="email" 
+                      id="email"
+                      name="email" 
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-gray-900 border border-gray-700 rounded p-2 focus:border-[#00FF8C] focus:outline-none text-white"
@@ -139,7 +158,8 @@ export default function Contact() {
                     <label htmlFor="subject" className="block text-[#00FF8C] mb-1">SUBJECT:</label>
                     <input 
                       type="text" 
-                      id="subject" 
+                      id="subject"
+                      name="subject" 
                       value={formData.subject}
                       onChange={handleChange}
                       className="w-full bg-gray-900 border border-gray-700 rounded p-2 focus:border-[#00FF8C] focus:outline-none text-white"
@@ -149,7 +169,8 @@ export default function Contact() {
                   <div>
                     <label htmlFor="message" className="block text-[#00FF8C] mb-1">MESSAGE:</label>
                     <textarea 
-                      id="message" 
+                      id="message"
+                      name="message" 
                       rows={5} 
                       value={formData.message}
                       onChange={handleChange}
@@ -215,6 +236,24 @@ export default function Contact() {
                   aria-label="LinkedIn Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a 
+                  href="https://github.com/fxrhan" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300"
+                  aria-label="GitHub Profile"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a 
+                  href="https://x.com/fxrhanansari" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300"
+                  aria-label="X.com Profile"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
                 </a>
               </div>
             </div>

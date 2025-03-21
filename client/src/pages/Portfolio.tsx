@@ -6,9 +6,9 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Testimonials from "@/components/Testimonials";
-import Resources from "@/components/Resources";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function Portfolio() {
@@ -75,9 +75,9 @@ export default function Portfolio() {
         <Skills />
         <Certifications />
         <Testimonials />
-        <Resources />
         <Contact />
         <Footer />
+        <BackToTop />
       </div>
     </div>
   );

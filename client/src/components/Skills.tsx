@@ -52,7 +52,6 @@ export default function Skills() {
                 <div key={index}>
                   <div className="flex justify-between mb-1">
                     <span className="font-mono text-sm">{skill.name}</span>
-                    <span className="font-mono text-xs text-[#00FF8C]">{skill.percentage}%</span>
                   </div>
                   <div className="w-full bg-gray-800 rounded-full h-2.5">
                     <div 
