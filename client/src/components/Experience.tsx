@@ -67,15 +67,7 @@ export default function Experience() {
                           <h3 className="font-mono text-xl mb-2">
                             <span className="text-[#00FF8C]">$</span> {experience.title}
                           </h3>
-                          <p className="text-gray-400 mb-4">{experience.period}</p>
-                          <ul className="space-y-2 text-sm text-gray-300">
-                            {experience.responsibilities.map((item, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="text-[#00FF8C] mr-2">▹</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <p className="text-gray-400 mb-2">{experience.period}</p>
                         </div>
                       </div>
                       
@@ -119,15 +111,7 @@ export default function Experience() {
                           <h3 className="font-mono text-xl mb-2">
                             <span className="text-[#00FF8C]">$</span> {experience.title}
                           </h3>
-                          <p className="text-gray-400 mb-4">{experience.period}</p>
-                          <ul className="space-y-2 text-sm text-gray-300">
-                            {experience.responsibilities.map((item, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="text-[#00FF8C] mr-2">▹</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <p className="text-gray-400 mb-2">{experience.period}</p>
                         </div>
                       </div>
                     </>

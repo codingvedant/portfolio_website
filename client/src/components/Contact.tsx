@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Link as LinkIcon } from "lucide-react";
+import { MapPin, Mail, Link as LinkIcon } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
@@ -199,18 +199,6 @@ export default function Contact() {
                 className="text-gray-300 hover:text-[#00FF8C] transition-colors duration-300"
               >
                 fxrhanansari@gmail.com
-              </a>
-            </div>
-            
-            <div className="mb-8">
-              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center">
-                <Phone className="text-[#00FF8C] mr-2" /> Phone
-              </h3>
-              <a 
-                href="tel:+919408765325" 
-                className="text-gray-300 hover:text-[#00FF8C] transition-colors duration-300"
-              >
-                +91 9408765325
               </a>
             </div>
             
