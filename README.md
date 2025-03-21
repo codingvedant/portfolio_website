@@ -2,7 +2,9 @@
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, designed to showcase cybersecurity skills and professional experience.
 
-![Portfolio Preview](client/public/portfolio-preview.png)
+<a href="client/public/portfolio-preview.png" target="_blank">
+  <img src="client/public/portfolio-preview.png" alt="Portfolio Preview" />
+</a>
 
 ## 🚀 Features
 
@@ -26,9 +28,6 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - **Backend**:
   - Node.js
   - Express
-
-- **Deployment**:
-  - Netlify
 
 ## 📋 Sections
 
@@ -71,19 +70,6 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
    ```
 
 4. Open your browser and navigate to `http://localhost:5173`
-
-## 🚢 Deployment
-
-This site is configured for easy deployment to Netlify. The contact form is set up to work with Netlify Forms.
-
-### Deploying to Netlify
-
-1. Push your code to GitHub
-2. Sign in to Netlify and create a new site from Git
-3. Select your repository and configure build settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist/public`
-4. Deploy the site
 
 ## 🔄 Contact Form
 
