@@ -90,8 +90,8 @@ export default function Experience() {
                   ) : (
                     // Odd items (left side on desktop)
                     <>
-                      <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 order-2 md:order-1">
-                        <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4">
+                      <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 order-2 md:order-1 md:text-right">
+                        <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4 mx-auto md:ml-auto md:mr-0">
                           <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
                             {icons[experience.icon as keyof typeof icons]}
                           </div>

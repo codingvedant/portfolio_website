@@ -124,7 +124,6 @@ export default function About() {
                 </h3>
                 <p className="text-gray-400 mb-1">GUJARAT TECHNOLOGICAL UNIVERSITY</p>
                 <p className="text-sm mb-1">Ahmedabad, Gujarat</p>
-                <p className="text-sm text-[#0066CC]">Cumulative GPA: 8.2/10</p>
               </div>
               
               <div>
@@ -133,7 +132,6 @@ export default function About() {
                 </h3>
                 <p className="text-gray-400 mb-1">MAHARAJA SAYAJIRAO UNIVERSITY</p>
                 <p className="text-sm mb-1">Vadodara, Gujarat</p>
-                <p className="text-sm text-[#0066CC]">Cumulative GPA: 8.9/10</p>
               </div>
             </motion.div>
             
