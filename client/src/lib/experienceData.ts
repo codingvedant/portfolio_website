@@ -17,7 +17,7 @@ export const experienceData = [
     location: "Zurich, Switzerland (Remote)",
     title: "Cyber Security Analyst",
     period: "July 2022 – December 2023",
-    icon: "ShieldLock",
+    icon: "ShieldAlert",
     responsibilities: [
       "Achieved 27% enhancement in overall security posture by implementing Azure Sentinel and Microsoft Defender",
       "Led development of cloud security solutions, ensuring safeguarding of systems, databases, and networks",
