@@ -51,6 +51,7 @@ export default function Contact() {
       // For Netlify Forms
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
+      formData.append("form-name", "contact");
       
       const response = await fetch("/", {
         method: "POST",
