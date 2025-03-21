@@ -5,10 +5,14 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
+import Testimonials from "@/components/Testimonials";
+import Resources from "@/components/Resources";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Portfolio() {
+  const { theme } = useTheme();
   useEffect(() => {
     // Smooth scrolling for navigation links
     const handleAnchorClick = (e: MouseEvent) => {

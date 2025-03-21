@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme } = useTheme();
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -28,24 +31,36 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#1A1A1A]/90 backdrop-blur-lg shadow-md' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      scrolled 
+        ? theme === 'dark' 
+          ? 'bg-[#1A1A1A]/90 backdrop-blur-lg shadow-md' 
+          : 'bg-white/90 backdrop-blur-lg shadow-md'
+        : 'bg-transparent'
+    }`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-[#00FF8C] font-mono text-xl font-semibold">&gt;_farhan.sh</span>
         </div>
         
-        <div className="hidden md:flex space-x-8 items-center">
-          <a href="#about" className="text-white hover:text-[#00FF8C] transition-colors duration-300">About</a>
-          <a href="#experience" className="text-white hover:text-[#00FF8C] transition-colors duration-300">Experience</a>
-          <a href="#skills" className="text-white hover:text-[#00FF8C] transition-colors duration-300">Skills</a>
-          <a href="#certifications" className="text-white hover:text-[#00FF8C] transition-colors duration-300">Certifications</a>
-          <a href="#contact" className="text-white hover:text-[#00FF8C] transition-colors duration-300">Contact</a>
+        <div className="hidden md:flex items-center">
+          <div className="flex space-x-6 mr-4">
+            <a href="#about" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>About</a>
+            <a href="#experience" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Experience</a>
+            <a href="#skills" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Skills</a>
+            <a href="#certifications" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Certifications</a>
+            <a href="#testimonials" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Testimonials</a>
+            <a href="#resources" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Resources</a>
+            <a href="#contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Contact</a>
+          </div>
+          <ThemeToggle />
         </div>
         
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-4">
+          <ThemeToggle />
           <button 
             onClick={toggleMenu} 
-            className="text-white hover:text-[#00FF8C] focus:outline-none"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] focus:outline-none`}
             aria-label="Toggle mobile menu"
           >
             <Menu className="h-6 w-6" />
@@ -54,39 +69,57 @@ export default function Navbar() {
       </nav>
       
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-[#1A1A1A] w-full border-t border-gray-800 ${isOpen ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden ${
+        theme === 'dark'
+          ? 'bg-[#1A1A1A] border-gray-800'
+          : 'bg-white border-gray-200'
+      } w-full border-t transition-all duration-300 ${isOpen ? 'block' : 'hidden'}`}>
         <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
           <a 
             href="#about" 
-            className="text-white hover:text-[#00FF8C] transition-colors duration-300"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
             onClick={closeMenu}
           >
             About
           </a>
           <a 
             href="#experience" 
-            className="text-white hover:text-[#00FF8C] transition-colors duration-300"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
             onClick={closeMenu}
           >
             Experience
           </a>
           <a 
             href="#skills" 
-            className="text-white hover:text-[#00FF8C] transition-colors duration-300"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
             onClick={closeMenu}
           >
             Skills
           </a>
           <a 
             href="#certifications" 
-            className="text-white hover:text-[#00FF8C] transition-colors duration-300"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
             onClick={closeMenu}
           >
             Certifications
           </a>
           <a 
+            href="#testimonials" 
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
+            onClick={closeMenu}
+          >
+            Testimonials
+          </a>
+          <a 
+            href="#resources" 
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
+            onClick={closeMenu}
+          >
+            Resources
+          </a>
+          <a 
             href="#contact" 
-            className="text-white hover:text-[#00FF8C] transition-colors duration-300"
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
             onClick={closeMenu}
           >
             Contact
