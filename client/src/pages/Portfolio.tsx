@@ -23,8 +23,10 @@ export default function Portfolio() {
           e.preventDefault();
           const targetElement = document.querySelector(href);
           if (targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             window.scrollTo({
-              top: targetElement.offsetTop - 80,
+              top: rect.top + scrollTop - 80,
               behavior: 'smooth'
             });
           }
@@ -64,14 +66,16 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="bg-[#121212] text-white font-sans relative overflow-hidden">
-      <div className="matrix-bg">
+    <div className={`${theme === 'dark' ? 'bg-[#121212] text-white' : 'bg-gray-50 text-[#1A1A1A]'} font-sans relative overflow-hidden transition-colors duration-300`}>
+      <div className={`${theme === 'dark' ? 'matrix-bg' : ''}`}>
         <Navbar />
         <Hero />
         <About />
         <Experience />
         <Skills />
         <Certifications />
+        <Testimonials />
+        <Resources />
         <Contact />
         <Footer />
       </div>
