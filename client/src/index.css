@@ -7,10 +7,32 @@
     @apply border-border;
   }
 
+  :root {
+    --primary-green: #00FF8C;
+    --primary-red: #FF3E3E;
+    --background-dark: #121212;
+    --card-dark: #1A1A1A;
+    --text-dark: #ffffff;
+    --text-light: #1A1A1A;
+    --background-light: #f8f9fa;
+    --card-light: #ffffff;
+  }
+
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    background-color: #121212;
-    color: white;
+    @apply font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode (default) */
+  body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+
+  /* Light mode */
+  body:not(.dark) {
+    background-color: var(--background-light);
+    color: var(--text-light);
   }
 }
 
@@ -27,7 +49,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(#00FF8C 1px, transparent 1px);
+    background-image: radial-gradient(var(--primary-green) 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.05;
     z-index: -1;
@@ -42,12 +64,24 @@
   }
   
   .terminal-container {
-    border: 1px solid #00FF8C;
-    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--primary-green);
     border-radius: 4px;
     padding: 1rem;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Dark mode terminal styling */
+  body.dark .terminal-container {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Light mode terminal styling */
+  body:not(.dark) .terminal-container {
+    background-color: rgba(245, 245, 245, 0.9);
+    color: var(--text-light);
+    border-color: var(--primary-green);
   }
   
   .terminal-container::before {
@@ -57,9 +91,45 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #00FF8C, #007747, #00FF8C);
+    background: linear-gradient(90deg, var(--primary-green), #007747, var(--primary-green));
     background-size: 200% 100%;
     animation: gradientMove 4s linear infinite;
+  }
+  
+  /* Dark theme section styling */
+  body.dark .section-bg-primary {
+    background-color: var(--card-dark);
+  }
+  
+  /* Light theme section styling */
+  body:not(.dark) .section-bg-primary {
+    background-color: var(--card-light);
+    border-color: #e0e0e0;
+  }
+  
+  /* Card styling for dark/light themes */
+  .theme-card {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  body.dark .theme-card {
+    background-color: var(--card-dark);
+    border-color: rgba(0, 255, 140, 0.3);
+  }
+  
+  body:not(.dark) .theme-card {
+    background-color: var(--card-light);
+    border-color: rgba(0, 180, 100, 0.3);
+    color: var(--text-light);
+  }
+  
+  /* Text color for paragraphs */
+  body.dark .theme-text {
+    color: #9ca3af; /* gray-400 in dark mode */
+  }
+  
+  body:not(.dark) .theme-text {
+    color: #4b5563; /* gray-600 in light mode */
   }
   
   @keyframes gradientMove {

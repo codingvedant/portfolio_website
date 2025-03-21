@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Tool, Book, Users, ExternalLink, Search, Shield } from "lucide-react";
+import { Wrench, BookOpen, Users, ExternalLink, Search, Shield } from "lucide-react";
 import { resourcesData } from "@/lib/resourcesData";
 import { useState } from "react";
 
@@ -78,7 +78,7 @@ export default function Resources() {
                   : "text-gray-400 hover:bg-gray-800 border border-transparent"
               } transition-all duration-300`}
             >
-              <Tool className="w-4 h-4 mr-2" />
+              <Wrench className="w-4 h-4 mr-2" />
               Tools
             </button>
             <button 
@@ -89,7 +89,7 @@ export default function Resources() {
                   : "text-gray-400 hover:bg-gray-800 border border-transparent"
               } transition-all duration-300`}
             >
-              <Book className="w-4 h-4 mr-2" />
+              <BookOpen className="w-4 h-4 mr-2" />
               Learning
             </button>
             <button 
