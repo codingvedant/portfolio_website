@@ -50,6 +50,7 @@ export default function Navbar() {
             <a href="#certifications" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Certifications</a>
             <a href="#testimonials" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Testimonials</a>
             <a href="#contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Contact</a>
+            <a href="https://medium.com/@fxrhanansari" target="_blank" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}>Blog</a>
           </div>
         </div>
         
@@ -112,6 +113,15 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             Contact
+          </a>
+          <a 
+            href="https://medium.com/@fxrhanansari" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`${theme === 'dark' ? 'text-white' : 'text-[#1A1A1A]'} hover:text-[#00FF8C] transition-colors duration-300`}
+            onClick={closeMenu}
+          >
+            Blog
           </a>
         </div>
       </div>

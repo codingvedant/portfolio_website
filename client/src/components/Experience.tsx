@@ -69,83 +69,43 @@ export default function Experience() {
                 variants={itemVariants}
               >
                 <div className="flex flex-col md:flex-row items-center">
-                  {index % 2 === 0 ? (
-                    // Even items (right side on desktop)
-                    <>
-                      <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
-                        <div className="bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg mb-4 hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30">
-                          <h3 className="font-mono text-xl mb-2">
-                            <span className="text-[#00FF8C]">$</span> {experience.title}
-                          </h3>
-                          <p className="text-gray-400 mb-2">{experience.period}</p>
+                  {/* Job Title and Duration - Always on the left */}
+                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
+                    <div className="bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg mb-4 hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30">
+                      <h3 className="font-mono text-xl mb-2">
+                        <span className="text-[#00FF8C]">$</span> {experience.title}
+                      </h3>
+                      <p className="text-gray-400 mb-2">{experience.period}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Timeline node - Always in the middle */}
+                  <div className="md:w-12 flex justify-center order-1 md:order-2 z-10">
+                    <div className="w-8 h-8 rounded-full bg-[#00FF8C] flex items-center justify-center">
+                      {icons[experience.icon as keyof typeof icons]}
+                    </div>
+                  </div>
+                  
+                  {/* Company, Logo, Location - Always on the right */}
+                  <div className="md:w-1/2 md:pl-12 order-3">
+                    <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4">
+                      {getCompanyLogo(experience.company) ? (
+                        <div className="w-48 h-48 rounded-lg flex items-center justify-center p-3 bg-[#1A1A1A] border border-[#00FF8C]/20">
+                          <img 
+                            src={getCompanyLogo(experience.company) || ''} 
+                            alt={`${experience.company} logo`} 
+                            className="max-w-full max-h-full object-contain"
+                          />
                         </div>
-                      </div>
-                      
-                      <div className="md:w-12 flex justify-center order-1 md:order-2 z-10">
-                        <div className="w-8 h-8 rounded-full bg-[#00FF8C] flex items-center justify-center">
+                      ) : (
+                        <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
                           {icons[experience.icon as keyof typeof icons]}
                         </div>
-                      </div>
-                      
-                      <div className="md:w-1/2 md:pl-12 order-3">
-                        <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4">
-                          {getCompanyLogo(experience.company) ? (
-                            <div className="w-48 h-48 rounded-lg flex items-center justify-center p-3 bg-[#1A1A1A] border border-[#00FF8C]/20">
-                              <img 
-                                src={getCompanyLogo(experience.company) || ''} 
-                                alt={`${experience.company} logo`} 
-                                className="max-w-full max-h-full object-contain"
-                              />
-                            </div>
-                          ) : (
-                            <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
-                              {icons[experience.icon as keyof typeof icons]}
-                            </div>
-                          )}
-                        </div>
-                        <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
-                        <p className="text-gray-400">{experience.location}</p>
-                      </div>
-                    </>
-                  ) : (
-                    // Odd items (left side on desktop)
-                    <>
-                      <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 order-2 md:order-1 md:text-right">
-                        <div className="bg-[#1A1A1A] bg-opacity-50 p-4 rounded-lg inline-block mb-4 mx-auto md:ml-auto md:mr-0">
-                          {getCompanyLogo(experience.company) ? (
-                            <div className="w-48 h-48 rounded-lg flex items-center justify-center p-3 bg-[#1A1A1A] border border-[#00FF8C]/20">
-                              <img 
-                                src={getCompanyLogo(experience.company) || ''} 
-                                alt={`${experience.company} logo`} 
-                                className="max-w-full max-h-full object-contain"
-                              />
-                            </div>
-                          ) : (
-                            <div className="w-32 h-32 rounded-lg bg-gradient-to-br from-[#1A1A1A] to-[#00FF8C]/10 flex items-center justify-center">
-                              {icons[experience.icon as keyof typeof icons]}
-                            </div>
-                          )}
-                        </div>
-                        <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
-                        <p className="text-gray-400">{experience.location}</p>
-                      </div>
-                      
-                      <div className="md:w-12 flex justify-center order-1 md:order-2 z-10">
-                        <div className="w-8 h-8 rounded-full bg-[#00FF8C] flex items-center justify-center">
-                          {icons[experience.icon as keyof typeof icons]}
-                        </div>
-                      </div>
-                      
-                      <div className="md:w-1/2 md:pl-12 md:text-left order-3">
-                        <div className="bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg mb-4 hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30">
-                          <h3 className="font-mono text-xl mb-2">
-                            <span className="text-[#00FF8C]">$</span> {experience.title}
-                          </h3>
-                          <p className="text-gray-400 mb-2">{experience.period}</p>
-                        </div>
-                      </div>
-                    </>
-                  )}
+                      )}
+                    </div>
+                    <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
+                    <p className="text-gray-400">{experience.location}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

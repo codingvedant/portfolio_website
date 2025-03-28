@@ -7,6 +7,8 @@ import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react";
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { theme } = useTheme();
+  const [imageError, setImageError] = useState<Record<number, boolean>>({});
+  const [remoteImageError, setRemoteImageError] = useState<Record<number, boolean>>({});
   
   function getInitials(name: string) {
     return name
@@ -22,6 +24,14 @@ export default function Testimonials() {
   
   const prevTestimonial = () => {
     setActiveIndex((activeIndex - 1 + testimonialsData.length) % testimonialsData.length);
+  };
+
+  const handleRemoteImageError = (index: number) => {
+    setRemoteImageError(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleLocalImageError = (index: number) => {
+    setImageError(prev => ({ ...prev, [index]: true }));
   };
   
   const relationColors: Record<string, string> = {
@@ -59,8 +69,26 @@ export default function Testimonials() {
               className="p-8 rounded-lg mb-10 border border-[#00FF8C]/20 bg-transparent shadow-[0_0_15px_rgba(0,255,140,0.1)]"
             >
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/10 border border-[#00FF8C]/30 text-[#00FF8C] font-bold text-xl">
-                  {getInitials(testimonialsData[activeIndex].name)}
+                <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
+                  {testimonialsData[activeIndex].image && !remoteImageError[activeIndex] ? (
+                    <img
+                      src={testimonialsData[activeIndex].image}
+                      alt={`${testimonialsData[activeIndex].name} profile`}
+                      className="w-16 h-16 object-cover"
+                      onError={() => handleRemoteImageError(activeIndex)}
+                    />
+                  ) : testimonialsData[activeIndex].localImage && !imageError[activeIndex] ? (
+                    <img
+                      src={testimonialsData[activeIndex].localImage}
+                      alt={`${testimonialsData[activeIndex].name} profile`}
+                      className="w-16 h-16 object-cover"
+                      onError={() => handleLocalImageError(activeIndex)}
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/10 border border-[#00FF8C]/30 text-[#00FF8C] font-bold text-xl">
+                      {getInitials(testimonialsData[activeIndex].name)}
+                    </div>
+                  )}
                 </div>
                 
                 <div className="flex-1">
