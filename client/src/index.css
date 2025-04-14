@@ -20,15 +20,11 @@
 
   body {
     @apply font-sans antialiased;
-    transition: background-color 0.3s ease, color 0.3s ease;
     background-color: var(--background-dark);
-    color: var(--text-dark);
-  }
-
-  /* Light mode */
-  body:not(.dark) {
-    background-color: var(--background-light);
-    color: var(--text-light);
+    color: var(--text-dark) !important;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
