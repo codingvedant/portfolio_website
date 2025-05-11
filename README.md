@@ -87,9 +87,7 @@ The site uses CSS variables for theming. Main colors and styling can be modified
 
 Update your personal information and site content in the respective component files or data files in `client/src/lib/`.
 
-## 📄 License
 
-This project is intended for personal use and is not open for public use without permission.
 
 ## 📞 Contact
 
