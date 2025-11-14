@@ -19,7 +19,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-16 md:py-24 px-4 bg-[#1A1A1A] bg-opacity-70 transition-all duration-500">
+    <section id="skills" className="py-16 md:py-24 px-4 transition-all duration-500">
       <div className="container mx-auto">
         <motion.div 
           className="mb-12 text-center"
@@ -28,7 +28,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative">
+          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative text-white">
             <span className="text-[#00FF8C]">#</span> Technical Skills
             <div className="h-1 w-36 bg-[#00FF8C] mt-2 mx-auto"></div>
           </h2>
@@ -43,7 +43,7 @@ export default function Skills() {
           viewport={{ once: true, amount: 0.1 }}
         >
           <motion.div variants={itemVariants}>
-            <h3 className="font-mono text-xl font-semibold mb-6 flex items-center">
+            <h3 className="font-mono text-xl font-semibold mb-6 flex items-center text-white">
               <Shield className="text-[#00FF8C] mr-2" /> Cybersecurity Skills
             </h3>
             
@@ -51,7 +51,7 @@ export default function Skills() {
               {skillsData.cybersecurity.map((skill, index) => (
                 <div key={index}>
                   <div className="flex justify-between mb-1">
-                    <span className="font-mono text-sm">{skill.name}</span>
+                    <span className="font-mono text-sm text-white">{skill.name}</span>
                   </div>
                   <div className="w-full bg-gray-800 rounded-full h-2.5">
                     <div 
@@ -65,7 +65,7 @@ export default function Skills() {
           </motion.div>
           
           <motion.div variants={itemVariants}>
-            <h3 className="font-mono text-xl font-semibold mb-6 flex items-center">
+            <h3 className="font-mono text-xl font-semibold mb-6 flex items-center text-white">
               <Code className="text-[#00FF8C] mr-2" /> Technical Stack
             </h3>
             
@@ -81,7 +81,7 @@ export default function Skills() {
                     <h4 className="font-mono text-sm font-semibold mb-2 text-[#00FF8C]">{category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-[#1A1A1A] rounded text-xs font-mono border border-gray-800">
+                        <span key={idx} className="px-2 py-1 bg-[#1A1A1A] rounded text-xs font-mono border border-gray-800 text-white">
                           {skill}
                         </span>
                       ))}

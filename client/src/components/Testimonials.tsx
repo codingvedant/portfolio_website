@@ -1,48 +1,23 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { testimonialsData } from "@/lib/testimonialsData";
 import { useTheme } from "@/hooks/useTheme";
-import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react";
+import { ChevronLeft, ChevronRight, BookOpen, ExternalLink, Calendar, Clock } from "lucide-react";
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { theme } = useTheme();
-  const [imageError, setImageError] = useState<Record<number, boolean>>({});
-  const [remoteImageError, setRemoteImageError] = useState<Record<number, boolean>>({});
   
-  function getInitials(name: string) {
-    return name
-      .split(' ')
-      .map(part => part.charAt(0))
-      .join('')
-      .toUpperCase();
-  }
-  
-  const nextTestimonial = () => {
+  const nextBlog = () => {
     setActiveIndex((activeIndex + 1) % testimonialsData.length);
   };
   
-  const prevTestimonial = () => {
+  const prevBlog = () => {
     setActiveIndex((activeIndex - 1 + testimonialsData.length) % testimonialsData.length);
-  };
-
-  const handleRemoteImageError = (index: number) => {
-    setRemoteImageError(prev => ({ ...prev, [index]: true }));
-  };
-
-  const handleLocalImageError = (index: number) => {
-    setImageError(prev => ({ ...prev, [index]: true }));
-  };
-  
-  const relationColors: Record<string, string> = {
-    "Client": "bg-blue-500/20 text-blue-300 border-blue-500/30",
-    "Colleague": "bg-green-500/20 text-green-300 border-green-500/30",
-    "Manager": "bg-purple-500/20 text-purple-300 border-purple-500/30",
-    "Research Mentor": "bg-amber-500/20 text-amber-300 border-amber-500/30"
   };
   
   return (
-    <section id="testimonials" className="py-16 md:py-24 px-4 transition-all duration-500">
+    <section id="blog" className="py-16 md:py-24 px-4 transition-all duration-500">
       <div className="container mx-auto">
         <motion.div 
           className="mb-12 text-center"
@@ -51,76 +26,79 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative">
-            <span className="text-[#00FF8C]">#</span> Testimonials
-            <div className="h-1 w-36 bg-[#00FF8C] mt-2 mx-auto"></div>
+          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative text-white">
+            <span className="text-[#00FF8C]">#</span> Blog
+            <div className="h-1 w-24 bg-[#00FF8C] mt-2 mx-auto"></div>
           </h2>
-          <p className={`max-w-2xl mx-auto theme-text`}>What colleagues and clients say about my work</p>
+          <p className={`max-w-2xl mx-auto theme-text`}>Articles and insights on cybersecurity, cloud security, and ethical hacking</p>
         </motion.div>
         
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.5 }}
-              className="p-8 rounded-lg mb-10 border border-[#00FF8C]/20 bg-transparent shadow-[0_0_15px_rgba(0,255,140,0.1)]"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
-                  {testimonialsData[activeIndex].image && !remoteImageError[activeIndex] ? (
-                    <img
-                      src={testimonialsData[activeIndex].image}
-                      alt={`${testimonialsData[activeIndex].name} profile`}
-                      className="w-16 h-16 object-cover"
-                      onError={() => handleRemoteImageError(activeIndex)}
-                    />
-                  ) : testimonialsData[activeIndex].localImage && !imageError[activeIndex] ? (
-                    <img
-                      src={testimonialsData[activeIndex].localImage}
-                      alt={`${testimonialsData[activeIndex].name} profile`}
-                      className="w-16 h-16 object-cover"
-                      onError={() => handleLocalImageError(activeIndex)}
-                    />
-                  ) : (
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/10 border border-[#00FF8C]/30 text-[#00FF8C] font-bold text-xl">
-                      {getInitials(testimonialsData[activeIndex].name)}
-                    </div>
-                  )}
-                </div>
-                
-                <div className="flex-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-xl font-semibold">{testimonialsData[activeIndex].name}</h3>
-                      <p className="text-sm text-gray-400 mb-2">{testimonialsData[activeIndex].position}</p>
-                    </div>
-                    <span className={`text-xs px-2 py-1 rounded-full border ${relationColors[testimonialsData[activeIndex].relation] || "bg-gray-700/20 text-gray-300 border-gray-700/30"}`}>
-                      {testimonialsData[activeIndex].relation}
-                    </span>
+            <AnimatePresence mode="wait">
+              <motion.a
+                key={activeIndex}
+                href={testimonialsData[activeIndex].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="block p-8 rounded-lg mb-10 border border-[#00FF8C]/20 bg-[#1A1A1A] bg-opacity-80 shadow-[0_0_15px_rgba(0,255,140,0.1)] hover:border-[#00FF8C] hover:shadow-[0_0_20px_rgba(0,255,140,0.2)] transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center bg-[#00FF8C]/10 border border-[#00FF8C]/30">
+                    <BookOpen className="w-8 h-8 text-[#00FF8C]" />
                   </div>
                   
-                  <div className="mt-4 relative">
-                    <MessageSquareQuote className="absolute -top-2 -left-2 w-5 h-5 text-[#00FF8C] opacity-40" />
-                    <p className="pl-4 text-white italic">"{testimonialsData[activeIndex].testimonial}"</p>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-mono font-semibold text-white group-hover:text-[#00FF8C] transition-colors mb-2">
+                          {testimonialsData[activeIndex].title}
+                        </h3>
+                        <p className="text-sm text-gray-400 mb-3 line-clamp-2">
+                          {testimonialsData[activeIndex].description}
+                        </p>
+                      </div>
+                      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-[#00FF8C] transition-colors flex-shrink-0 ml-4" />
+                    </div>
+                    
+                    <div className="flex items-center justify-between text-xs text-gray-500 border-t border-gray-800 pt-4">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{testimonialsData[activeIndex].date}</span>
+                      </div>
+                      {testimonialsData[activeIndex].readTime && (
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          <span>{testimonialsData[activeIndex].readTime}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="mt-3">
+                      <span className="text-xs px-2 py-1 rounded-full bg-[#00FF8C]/10 text-[#00FF8C] border border-[#00FF8C]/30">
+                        {testimonialsData[activeIndex].platform}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.a>
+            </AnimatePresence>
             
             <div className="flex justify-center gap-2 mt-6">
               {testimonialsData.map((_, index) => (
                 <button 
                   key={index} 
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex 
-                      ? 'bg-[#00FF8C]' 
-                      : theme === 'dark' ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-[#00FF8C] w-8' 
+                      : theme === 'dark' ? 'bg-gray-700 hover:bg-gray-600 w-3' : 'bg-gray-300 hover:bg-gray-400 w-3'
                   }`}
                   onClick={() => setActiveIndex(index)}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Go to blog ${index + 1}`}
                 />
               ))}
             </div>
@@ -129,9 +107,9 @@ export default function Testimonials() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={prevTestimonial}
+                onClick={prevBlog}
                 className="p-2 rounded-full bg-transparent border border-[#00FF8C]/30 text-[#00FF8C] hover:bg-[#00FF8C]/10 flex items-center justify-center"
-                aria-label="Previous testimonial"
+                aria-label="Previous blog"
               >
                 <ChevronLeft className="w-5 h-5" />
               </motion.button>
@@ -139,9 +117,9 @@ export default function Testimonials() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={nextTestimonial}
+                onClick={nextBlog}
                 className="p-2 rounded-full bg-transparent border border-[#00FF8C]/30 text-[#00FF8C] hover:bg-[#00FF8C]/10 flex items-center justify-center"
-                aria-label="Next testimonial"
+                aria-label="Next blog"
               >
                 <ChevronRight className="w-5 h-5" />
               </motion.button>

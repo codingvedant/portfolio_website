@@ -1,42 +1,52 @@
-export const testimonialsData = [
+export interface BlogPost {
+  title: string;
+  description: string;
+  date: string;
+  url: string;
+  platform: string;
+  readTime?: string;
+}
+
+export const testimonialsData: BlogPost[] = [
   {
-    name: "Sarah Johnson",
-    position: "CISO at TechSecure Inc",
-    testimonial: "Farhan was instrumental in our security transformation project. His deep expertise in vulnerability assessment and penetration testing helped us identify and mitigate several critical risks before they could be exploited.",
-    relation: "Client",
-    image: "https://randomuser.me/api/portraits/women/23.jpg",
-    localImage: "/assets/testimonials/profile-woman1.jpg"
+    title: "Goodbye Port 22 — Understanding AWS SSM’s Secure Access Mechanism",
+    description: "A deep dive into how AWS Systems Manager (SSM) allows secure, port-less access to EC2 instances. Learn why SSM is safer than traditional SSH and how to implement it with IAM roles, logging, and session manager.",
+    date: "November 4, 2025",
+    url: "https://medium.com/@codingvedant/goodbye-port-22-understanding-aws-ssms-secure-access-mechanism-28ec1fa54a1b",
+    platform: "Medium",
+    readTime: "5 min read"
   },
   {
-    name: "Michael Chen",
-    position: "Senior Security Analyst",
-    testimonial: "Working alongside Farhan was an incredible learning experience. His methodical approach to incident response and ability to remain calm under pressure is something I continue to emulate in my own career.",
-    relation: "Colleague",
-    image: "https://randomuser.me/api/portraits/men/54.jpg",
-    localImage: "/assets/testimonials/profile-man1.jpg"
+    title: "TryHackMe — Res Walkthrough",
+    description: "A complete walkthrough of the Res machine on TryHackMe. Covers enumeration, SSH access on unusual ports, password cracking, privilege escalation, and attacker methodology.",
+    date: "September 27, 2025",
+    url: "https://medium.com/@codingvedant/tryhackme-jack-of-all-trades-walkthrough-write-up-0f630d67e361",
+    platform: "Medium",
+    readTime: "5 min read"
   },
   {
-    name: "Dr. Rebecca Martinez",
-    position: "Professor of Cybersecurity",
-    testimonial: "Farhan consistently demonstrated exceptional analytical skills during our collaborative research on zero-day vulnerabilities. His contributions were invaluable to our published findings in the field of network security.",
-    relation: "Research Mentor",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
-    localImage: "/assets/testimonials/profile-woman2.jpg"
+    title: "TryHackMe — Jack-of-All-Trades Walkthrough",
+    description: "A complete walkthrough of the Jack-of-All-Trades TryHackMe walkthrough with improved methodology, covering Nmap scanning, Hydra brute force, SSH tunneling, and root privilege escalation.",
+    date: "September 19, 2025",
+    url: "https://medium.com/@codingvedant/tryhackme-jack-of-all-trades-walkthrough-write-up-a56cb9bf2ec6",
+    platform: "Medium",
+    readTime: "7 min read"
   },
   {
-    name: "James Wilson",
-    position: "CTO at SecureCloud Solutions",
-    testimonial: "After Farhan overhauled our cloud infrastructure security protocols, we saw a 65% reduction in vulnerability findings during external audits. His expertise in AWS security is truly outstanding.",
-    relation: "Client",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    localImage: "/assets/testimonials/profile-man2.jpg"
+    title: "TryHackMe — Brains Lab Walkthrough Guide",
+    description: "A beginner-friendly guide to the Brains lab on TryHackMe. Learn enumeration, web analysis, credential extraction, and privilege escalation techniques in an easy-to-follow format.",
+    date: "September 18, 2025",
+    url: "https://medium.com/@codingvedant/tryhackme-brains-lab-walkthrough-guide-55a43ea9f19c",
+    platform: "Medium",
+    readTime: "6 min read"
   },
   {
-    name: "Dana Fox",
-    position: "Information Security Lead",
-    testimonial: "Farhan's leadership during our security incident was exemplary. He coordinated our response team efficiently, minimized damage, and implemented new safeguards that have protected us from similar threats since.",
-    relation: "Manager",
-    image: "https://randomuser.me/api/portraits/women/67.jpg",
-    localImage: "/assets/testimonials/profile-woman3.jpg"
+    title: "Hack The Box: Dog — Full Walkthrough",
+    description: "A complete Hack The Box Dog machine walkthrough covering reconnaissance, exploiting exposed Git directories, RCE on Backdrop CMS, and privilege escalation via misconfigured binaries.",
+    date: "September 8, 2025",
+    url: "https://medium.com/@codingvedant/hack-the-box-dog-htb-lab-walkthrough-guide-b603fb68204c",
+    platform: "Medium",
+    readTime: "4 min read"
   }
 ];
+

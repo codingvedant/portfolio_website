@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import useTypewriter from "@/hooks/useTypewriter";
 
 export default function Hero() {
-  const name = useTypewriter("FARHAN ANSARI", 100);
-  const title = useTypewriter("Security Associate at Rapidops Inc.", 50, 1200);
+  const name = useTypewriter("VEDANT BHALERAO", 100);
+  const title = useTypewriter("Graduate student at the University of Maryland", 50, 1200);
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 relative overflow-hidden">
@@ -26,7 +26,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono text-white"
         >
           {name}
         </motion.h1>
@@ -52,51 +52,51 @@ export default function Hero() {
             <div className="w-3 h-3 rounded-full bg-[#FF3E3E] mr-2"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-400 mr-2"></div>
             <div className="w-3 h-3 rounded-full bg-[#00FF8C]"></div>
-            <span className="ml-4 text-sm text-gray-400 font-mono">farhan@security:~</span>
+            <span className="ml-4 text-sm text-gray-400 font-mono">vedant@security:~</span>
           </div>
           <div className="font-mono text-sm md:text-base">
             <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">./get_profile.sh</span></p>
-            <p className="mb-1">Cybersecurity professional with expertise in:</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Vulnerability Assessment</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Security Protocols</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Threat Intelligence</p>
-            <p className="mb-1"><span className="text-[#00FF8C]">{'>'}</span> Cloud Security (Azure, AWS)</p>
-            <p className="mb-3"><span className="text-[#00FF8C]">{'>'}</span> Endpoint Security</p>
+            <p className="mb-1 text-white">Cybersecurity professional with expertise in:</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Cloud Security (AWS, Azure, Google Cloud)</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Vulnerability Assessment</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Penetration Testing</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Threat Intelligence</p>
+            <p className="mb-3 text-white"><span className="text-[#00FF8C]">{'>'}</span> Endpoint Security</p>
             <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">echo $LOCATION</span></p>
-            <p className="mb-3">Ahmedabad, India</p>
+            <p className="mb-3 text-white">College Park, United States</p>
             <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">cat contact.txt</span></p>
-            <p className="mb-1">E: fxrhanansari@gmail.com</p>
+            <p className="mb-1 text-white">E: vedantbhalerao315@gmail.com</p>
             <p className="mb-1 flex items-center">
-              <span className="mr-2">LinkedIn:</span>
+              <span className="mr-2 text-white">LinkedIn:</span>
               <a 
-                href="https://www.linkedin.com/in/ansari-farhan/" 
+                href="https://www.linkedin.com/in/vedantb31/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#0066CC] hover:text-[#00FF8C] transition-colors duration-300"
               >
-                linkedin.com/in/ansari-farhan
+                linkedin.com/in/vedantb31
               </a>
             </p>
             <p className="mb-1 flex items-center">
-              <span className="mr-2">GitHub:</span>
+              <span className="mr-2 text-white">GitHub:</span>
               <a 
-                href="https://github.com/fxrhan" 
+                href="https://github.com/codingvedant" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#6e5494] hover:text-[#00FF8C] transition-colors duration-300"
               >
-                github.com/fxrhan
+                github.com/codingvedant
               </a>
             </p>
             <p className="mb-1 flex items-center">
-              <span className="mr-2">X.com:</span>
+              <span className="mr-2 text-white">X.com:</span>
               <a 
-                href="https://x.com/fxrhanansari" 
+                href="https://x.com/vedantb31" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#1DA1F2] hover:text-[#00FF8C] transition-colors duration-300"
               >
-                x.com/fxrhanansari
+                x.com/vedantb31
               </a>
             </p>
             <p className="mb-1 mt-3">
@@ -115,13 +115,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a 
               href="#about" 
-              className="px-8 py-3 bg-[#1A1A1A] border border-[#00FF8C] rounded-md hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 font-mono"
+              className="px-8 py-3 bg-[#1A1A1A] border border-[#00FF8C] rounded-md hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 font-mono text-white"
             >
               About Me
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border border-[#0066CC] rounded-md hover:bg-[#0066CC] transition-all duration-300 font-mono"
+              className="px-8 py-3 border border-[#0066CC] rounded-md hover:bg-[#0066CC] transition-all duration-300 font-mono text-white"
             >
               Contact
             </a>

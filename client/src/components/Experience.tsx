@@ -26,10 +26,10 @@ export default function Experience() {
 
   // Function to get the logo based on company name
   const getCompanyLogo = (company: string) => {
-    if (company.includes("RAPIDOPS")) {
-      return "/assets/rapidops_logo.jpg";
-    } else if (company.includes("EF EDUCATION")) {
-      return "/assets/EF_logo.jpeg";
+    if (company.includes("Iotian")) {
+      return "/iotian.jpeg";
+    } else if (company.includes("Larsen")) {
+      return "/ltfs.jpeg";
     }
     return null;
   };
@@ -44,7 +44,7 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative">
+          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative text-white">
             <span className="text-[#00FF8C]">#</span> Professional Experience
             <div className="h-1 w-36 bg-[#00FF8C] mt-2 mx-auto"></div>
           </h2>
@@ -72,7 +72,7 @@ export default function Experience() {
                   {/* Job Title and Duration - Always on the left */}
                   <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
                     <div className="bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg mb-4 hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30">
-                      <h3 className="font-mono text-xl mb-2">
+                      <h3 className="font-mono text-xl mb-2 text-white">
                         <span className="text-[#00FF8C]">$</span> {experience.title}
                       </h3>
                       <p className="text-gray-400 mb-2">{experience.period}</p>
@@ -103,7 +103,7 @@ export default function Experience() {
                         </div>
                       )}
                     </div>
-                    <h3 className="font-mono text-xl font-bold mb-2">{experience.company}</h3>
+                    <h3 className="font-mono text-xl font-bold mb-2 text-white">{experience.company}</h3>
                     <p className="text-gray-400">{experience.location}</p>
                   </div>
                 </div>
