@@ -69,13 +69,27 @@ export default function Portfolio() {
     <div className={`${theme === 'dark' ? 'bg-[#121212] text-white' : 'bg-gray-50 text-[#1A1A1A]'} font-sans relative overflow-hidden transition-colors duration-300`}>
       <div className={`${theme === 'dark' ? 'matrix-bg' : ''}`}>
         <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Certifications />
-        <Testimonials />
-        <Contact />
+        <div className="bg-black">
+          <Hero />
+        </div>
+        <div className="bg-[#1A1A1A]">
+          <About />
+        </div>
+        <div className="bg-black">
+          <Experience />
+        </div>
+        <div className="bg-[#1A1A1A]">
+          <Skills />
+        </div>
+        <div className="bg-black">
+          <Certifications />
+        </div>
+        <div className="bg-[#1A1A1A]">
+          <Testimonials />
+        </div>
+        <div className="bg-black">
+          <Contact />
+        </div>
         <Footer />
         <BackToTop />
       </div>

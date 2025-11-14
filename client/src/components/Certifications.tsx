@@ -6,7 +6,9 @@ import {
   CloudIcon, 
   Globe, 
   Database,
-  PlusCircle
+  PlusCircle,
+  Sword,
+  Code
 } from "lucide-react";
 
 export default function Certifications() {
@@ -31,6 +33,8 @@ export default function Certifications() {
     Cloud: <CloudIcon className="text-3xl text-[#00FF8C]" />,
     Globe: <Globe className="text-3xl text-[#00FF8C]" />,
     Database: <Database className="text-3xl text-[#00FF8C]" />,
+    Sword: <Sword className="text-3xl text-[#00FF8C]" />,
+    Code: <Code className="text-3xl text-[#00FF8C]" />,
     Plus: <PlusCircle className="text-4xl text-gray-400" />
   };
 
@@ -44,7 +48,7 @@ export default function Certifications() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative">
+          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative text-white">
             <span className="text-[#00FF8C]">#</span> Certifications & Training
             <div className="h-1 w-52 bg-[#00FF8C] mt-2 mx-auto"></div>
           </h2>
@@ -69,7 +73,7 @@ export default function Certifications() {
                   {icons[certification.icon as keyof typeof icons]}
                 </div>
               </div>
-              <h3 className="font-mono text-lg font-semibold text-center mb-3">{certification.name}</h3>
+              <h3 className="font-mono text-lg font-semibold text-center mb-3 text-white">{certification.name}</h3>
               <div className="border-t border-gray-800 pt-3 mt-4">
                 <p className="text-xs text-gray-400 text-center">{certification.issuer}</p>
               </div>
@@ -83,7 +87,7 @@ export default function Certifications() {
             <div className="text-gray-400 text-center mb-4">
               {icons.Plus}
             </div>
-            <h3 className="font-mono text-lg font-semibold text-center">Pursuing New Certifications</h3>
+            <h3 className="font-mono text-lg font-semibold text-center text-white">Pursuing New Certifications</h3>
             <p className="text-sm text-gray-400 text-center mt-2">Always expanding my knowledge in cybersecurity</p>
           </motion.div>
         </motion.div>

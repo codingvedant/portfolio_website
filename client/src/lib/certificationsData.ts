@@ -1,27 +1,28 @@
 export const certificationsData = [
   {
-    name: "(ISC)² Certified in Cybersecurity",
-    issuer: "(ISC)² - International Information System Security Certification Consortium",
-    icon: "ShieldCheck"
-  },
-  {
-    name: "EC Council CICT",
-    issuer: "EC-Council - International Council of E-Commerce Consultants",
-    icon: "Shield"
-  },
-  {
-    name: "Azure AZ-900",
-    issuer: "Microsoft - Azure Fundamentals Certification",
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
     icon: "Cloud"
   },
   {
-    name: "Stanford Web Security Professional",
-    issuer: "Stanford University - Web Security Professional Program",
-    icon: "Globe"
+    name: "Certified Ethical Hacker v12",
+    issuer: "EC-Council - International Council of E-Commerce Consultants",
+    icon: "Sword"
   },
   {
-    name: "Google Digital Marketing",
-    issuer: "Google - Digital Marketing Certification",
-    icon: "Database"
+    name: "Google Cloud Computing",
+    issuer: "Google Cloud",
+    icon: "Cloud"
+  },
+  {
+    name: "QRadar SIEM Certified",
+    issuer: "IBM",
+    icon: "Shield"
+  },
+  
+  {
+    name: "MERN Stack Developer",
+    issuer: "Ethnus Education Pvt. Ltd.",
+    icon: "Code"
   }
 ];

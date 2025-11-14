@@ -8,9 +8,9 @@ export const terminalCommands = {
     { text: '> Cloud Security (Azure, AWS)', type: 'output' },
     { text: '> Endpoint Security', type: 'output' },
     { text: '$ echo $LOCATION', type: 'command', color: 'text-red-500' },
-    { text: 'Ahmedabad, India', type: 'output' },
+    { text: 'College Park, Maryland, United States', type: 'output' },
     { text: '$ cat contact.txt', type: 'command', color: 'text-red-500' },
-    { text: 'E: fxrhanansari@gmail.com', type: 'output' },
+    { text: 'E: vedantbhalerao315@gmail.com', type: 'output' },
   ],
   skills: [
     { text: '$ ls -la /skills', type: 'command' },

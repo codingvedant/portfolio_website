@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Link as LinkIcon } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -13,6 +14,14 @@ export default function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey && publicKey !== "YOUR_PUBLIC_KEY") {
+      emailjs.init(publicKey);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -48,20 +57,58 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // For Netlify Forms
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
-      formData.append("form-name", "contact");
-      
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Debug: Log environment variables (remove in production)
+      console.log("EmailJS Config Check:", {
+        serviceId: serviceId ? `${serviceId.substring(0, 10)}...` : "MISSING",
+        templateId: templateId ? `${templateId.substring(0, 10)}...` : "MISSING",
+        publicKey: publicKey ? `${publicKey.substring(0, 10)}...` : "MISSING",
       });
-      
-      if (!response.ok) {
-        throw new Error(`Form submission failed: ${response.status}`);
+
+      // Validate that EmailJS is configured
+      if (!serviceId || !templateId || !publicKey) {
+        console.error("Missing EmailJS configuration:", {
+          serviceId: !!serviceId,
+          templateId: !!templateId,
+          publicKey: !!publicKey,
+        });
+        throw new Error(
+          "EmailJS is not configured. Please check your .env file and restart the dev server. " +
+          "Make sure you have VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY set."
+        );
       }
+
+      // Check for placeholder values
+      if (
+        serviceId === "YOUR_SERVICE_ID" || 
+        templateId === "YOUR_TEMPLATE_ID" || 
+        publicKey === "YOUR_PUBLIC_KEY" ||
+        serviceId.includes("your_") ||
+        templateId.includes("your_") ||
+        publicKey.includes("your_")
+      ) {
+        throw new Error(
+          "EmailJS environment variables contain placeholder values. Please replace them with your actual EmailJS credentials."
+        );
+      }
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || "Contact Form Submission",
+        message: formData.message,
+        to_email: "vedantbhalerao315@gmail.com",
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(serviceId, templateId, templateParams);
+      
+      console.log("Email sent successfully:", response);
       
       toast({
         title: "Message sent",
@@ -75,11 +122,21 @@ export default function Contact() {
         subject: "",
         message: ""
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Form submission error:", error);
+      
+      // Provide more specific error messages
+      let errorMessage = "There was an error sending your message. Please try again later.";
+      
+      if (error?.text) {
+        errorMessage = `Error: ${error.text}`;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      }
+      
       toast({
         title: "Error sending message",
-        description: "There was an error sending your message. Please try again later.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
@@ -88,7 +145,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 bg-[#1A1A1A] bg-opacity-70 transition-all duration-500">
+    <section id="contact" className="py-16 md:py-24 px-4 transition-all duration-500">
       <div className="container mx-auto">
         <motion.div 
           className="mb-12 text-center"
@@ -97,7 +154,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative">
+          <h2 className="text-3xl font-bold font-mono mb-4 inline-block relative text-white">
             <span className="text-[#00FF8C]">#</span> Get In Touch
             <div className="h-1 w-32 bg-[#00FF8C] mt-2 mx-auto"></div>
           </h2>
@@ -124,11 +181,7 @@ export default function Contact() {
                 <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-white">./send_message.sh</span></p>
                 <p className="mb-4">Initiating secure contact protocol...</p>
                 
-                <form className="space-y-4" onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                  </p>
+                <form className="space-y-4" onSubmit={handleSubmit} name="contact">
                   <div>
                     <label htmlFor="name" className="block text-[#00FF8C] mb-1">NAME:</label>
                     <input 
@@ -205,53 +258,53 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <div className="mb-8">
-              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center">
+              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center text-white">
                 <MapPin className="text-[#00FF8C] mr-2" /> Location
               </h3>
-              <p className="text-gray-300 mb-2">Ahmedabad, Gujarat, India</p>
+              <p className="text-white mb-2">College Park, Maryland, United States</p>
               <p className="text-gray-400 text-sm">Available for remote work globally</p>
             </div>
             
             <div className="mb-8">
-              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center">
+              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center text-white">
                 <Mail className="text-[#00FF8C] mr-2" /> Email
               </h3>
               <a 
-                href="mailto:fxrhanansari@gmail.com" 
+                href="mailto:vedantbhalerao315@gmail.com" 
                 className="text-gray-300 hover:text-[#00FF8C] transition-colors duration-300"
               >
-                fxrhanansari@gmail.com
+                vedantbhalerao315@gmail.com
               </a>
             </div>
             
             <div>
-              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center">
+              <h3 className="font-mono text-xl font-semibold mb-4 flex items-center text-white">
                 <LinkIcon className="text-[#00FF8C] mr-2" /> Social
               </h3>
               <div className="flex space-x-4">
                 <a 
-                  href="https://www.linkedin.com/in/ansari-farhan/" 
+                  href="https://www.linkedin.com/in/vedantb31/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300"
+                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 text-white"
                   aria-label="LinkedIn Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
                 <a 
-                  href="https://github.com/fxrhan" 
+                  href="https://github.com/codingvedant" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300"
+                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 text-white"
                   aria-label="GitHub Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </a>
                 <a 
-                  href="https://x.com/fxrhanansari" 
+                  href="https://x.com/vedantb31" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300"
+                  className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center hover:bg-[#00FF8C] hover:text-[#1A1A1A] transition-all duration-300 text-white"
                   aria-label="X.com Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
