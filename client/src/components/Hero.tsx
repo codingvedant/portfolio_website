@@ -88,7 +88,7 @@ export default function Hero() {
                 github.com/codingvedant
               </a>
             </p>
-            <p className="mb-1 flex items-center">
+            <p className="mb-3 flex items-center">
               <span className="mr-2 text-white">X.com:</span>
               <a 
                 href="https://x.com/vedantb31" 
@@ -98,6 +98,18 @@ export default function Hero() {
               >
                 x.com/vedantb31
               </a>
+            </p>
+            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">echo $RESUME</span></p>
+            <p className="mb-1 flex items-center">
+              <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#00FF8C] hover:underline transition-colors duration-300 cursor-pointer"
+              >
+                /resume.pdf
+              </a>
+              <span className="ml-2 text-gray-500 text-sm">(click to view)</span>
             </p>
             <p className="mb-1 mt-3">
               <span className="text-[#00FF8C]">$</span> <span className="text-white">_</span>
