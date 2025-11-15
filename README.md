@@ -1,10 +1,6 @@
-# Cybersecurity Portfolio - Farhan Ansari
+# Cybersecurity Portfolio - Vedant Bhalerao
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, designed to showcase cybersecurity skills and professional experience.
-
-<a href="client/public/portfolio-preview.png" target="_blank">
-  <img src="client/public/portfolio-preview.png" alt="Portfolio Preview" />
-</a>
 
 ## 🚀 Features
 
@@ -51,7 +47,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fxrhan/CyberPortfolio.git
+   git clone https://github.com/vedantbhalerao/CyberPortfolio.git
    cd CyberPortfolio
    ```
 
@@ -91,10 +87,10 @@ Update your personal information and site content in the respective component fi
 
 ## 📞 Contact
 
-Farhan Ansari - [fxrhanansari@gmail.com](mailto:fxrhanansari@gmail.com)
+Vedant Bhalerao - [vedantbhalerao315@gmail.com](mailto:vedantbhalerao315@gmail.com)
 
-Project Link: [https://github.com/fxrhan/CyberPortfolio](https://github.com/fxrhan/CyberPortfolio)
+Project Link: [https://github.com/vedantbhalerao/CyberPortfolio](https://github.com/vedantbhalerao/CyberPortfolio)
 
 ---
 
-Built with ❤️ by Farhan Ansari 
+Built with ❤️ by Vedant Bhalerao 
