@@ -15,14 +15,14 @@ export const terminalCommands = {
   skills: [
     { text: '$ ls -la /skills', type: 'command' },
     { text: 'total 42', type: 'output' },
-    { text: 'drwxr-xr-x  2 farhan wheel  68B Jul  8 13:37 cybersecurity/', type: 'output' },
-    { text: 'drwxr-xr-x  2 farhan wheel  68B Jul  8 13:37 cloud/', type: 'output' },
-    { text: 'drwxr-xr-x  2 farhan wheel  68B Jul  8 13:37 programming/', type: 'output' },
-    { text: 'drwxr-xr-x  2 farhan wheel  68B Jul  8 13:37 certifications/', type: 'output' },
+    { text: 'drwxr-xr-x  2 vedant wheel  68B Jul  8 13:37 cybersecurity/', type: 'output' },
+    { text: 'drwxr-xr-x  2 vedant wheel  68B Jul  8 13:37 cloud/', type: 'output' },
+    { text: 'drwxr-xr-x  2 vedant wheel  68B Jul  8 13:37 programming/', type: 'output' },
+    { text: 'drwxr-xr-x  2 vedant wheel  68B Jul  8 13:37 certifications/', type: 'output' },
   ],
   about: [
     { text: '$ whoami', type: 'command' },
-    { text: 'Farhan Ansari - Cybersecurity Professional', type: 'output' },
+    { text: 'Vedant Bhalerao - Cybersecurity Professional', type: 'output' },
     { text: '$ cat /etc/profile', type: 'command' },
     { text: 'Dedicated cybersecurity professional with experience in implementing and maintaining security protocols, conducting vulnerability assessments, and enhancing organizational security posture.', type: 'output' },
   ]
