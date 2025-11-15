@@ -47,8 +47,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/vedantbhalerao/CyberPortfolio.git
-   cd CyberPortfolio
+   git clone https://github.com/codingvedant/portfolio_website.git
+   cd portfolio_website
    ```
 
 2. Install dependencies:
@@ -65,7 +65,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
    yarn dev
    ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+4. Open your browser and navigate to `http://localhost:5000`
 
 ## 🔄 Contact Form
 
@@ -91,7 +91,7 @@ Vedant Bhalerao - [vedantbhalerao315@gmail.com](mailto:vedantbhalerao315@gmail.c
 
 Website: [https://vedantbhalerao.com](https://vedantbhalerao.com)
 
-Project Link: [https://github.com/vedantbhalerao/CyberPortfolio](https://github.com/vedantbhalerao/CyberPortfolio)
+Project Link: [https://github.com/codingvedant/portfolio_website](https://github.com/codingvedant/portfolio_website)
 
 ---
 
