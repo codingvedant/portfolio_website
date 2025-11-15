@@ -89,6 +89,8 @@ Update your personal information and site content in the respective component fi
 
 Vedant Bhalerao - [vedantbhalerao315@gmail.com](mailto:vedantbhalerao315@gmail.com)
 
+Website: [https://vedantbhalerao.com](https://vedantbhalerao.com)
+
 Project Link: [https://github.com/vedantbhalerao/CyberPortfolio](https://github.com/vedantbhalerao/CyberPortfolio)
 
 ---
