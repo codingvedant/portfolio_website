@@ -1,5 +1,0 @@
-Place your resume PDF file here as "resume.pdf"
-The file should be named exactly "resume.pdf" (lowercase)
-
-The resume will be accessible via the terminal command "echo $RESUME" on the Hero section of the website.
-

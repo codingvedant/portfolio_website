@@ -47,6 +47,14 @@ export const testimonialsData: BlogPost[] = [
     url: "https://medium.com/@codingvedant/hack-the-box-dog-htb-lab-walkthrough-guide-b603fb68204c",
     platform: "Medium",
     readTime: "4 min read"
+  },
+  {
+    title: "Exploiting the CloudGoat EC2 SSRF Scenario: From SSRF to Full AWS Compromise",
+    description: "A hands-on walkthrough of exploiting a vulnerable EC2 SSRF scenario in the CloudGoat AWS lab environment to chain from SSRF through metadata service abuse, credential harvesting, and ultimately full AWS cloud compromise.",
+    date: "November 21, 2025",
+    url: "https://medium.com/@codingvedant/exploiting-the-cloudgoat-ec2-ssrf-scenario-from-ssrf-to-full-aws-compromise-904b3d64e0b5",
+    platform: "Medium",
+    readTime: "4 min read"
   }
 ];
 
