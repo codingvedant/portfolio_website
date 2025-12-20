@@ -55,6 +55,15 @@ export const testimonialsData: BlogPost[] = [
     url: "https://medium.com/@codingvedant/exploiting-the-cloudgoat-ec2-ssrf-scenario-from-ssrf-to-full-aws-compromise-904b3d64e0b5",
     platform: "Medium",
     readTime: "4 min read"
+  },
+  {
+  "title": "Domain Join an Ubuntu Machine to an Active Directory",
+  "description": "A step-by-step guide to joining an Ubuntu machine to a Windows Server Active Directory domain, based on a hands-on multi-VM lab setup. The walkthrough covers common issues, required configurations, and the exact steps that worked in practice.",
+  "date": "December 19, 2025",
+  "url": "https://medium.com/@codingvedant/domain-join-an-ubuntu-machine-to-an-active-directory-34ea0a6b37bb",
+  "platform": "Medium",
+  "readTime": "3 min read"
   }
+
 ];
 
