@@ -9,6 +9,22 @@ export interface BlogPost {
 
 export const testimonialsData: BlogPost[] = [
   {
+    title: "Domain Join an Ubuntu Machine to an Active Directory",
+    description: "A step-by-step guide to joining an Ubuntu machine to a Windows Server Active Directory domain, based on a hands-on multi-VM lab setup. The walkthrough covers common issues, required configurations, and the exact steps that worked in practice.",
+    date: "December 19, 2025",
+    url: "https://medium.com/@codingvedant/domain-join-an-ubuntu-machine-to-an-active-directory-34ea0a6b37bb",
+    platform: "Medium",
+    readTime: "3 min read"
+  },
+  {
+    title: "Exploiting the CloudGoat EC2 SSRF Scenario: From SSRF to Full AWS Compromise",
+    description: "A hands-on walkthrough of exploiting a vulnerable EC2 SSRF scenario in the CloudGoat AWS lab environment to chain from SSRF through metadata service abuse, credential harvesting, and ultimately full AWS cloud compromise.",
+    date: "November 21, 2025",
+    url: "https://medium.com/@codingvedant/exploiting-the-cloudgoat-ec2-ssrf-scenario-from-ssrf-to-full-aws-compromise-904b3d64e0b5",
+    platform: "Medium",
+    readTime: "4 min read"
+  },
+  {
     title: "Goodbye Port 22 — Understanding AWS SSM’s Secure Access Mechanism",
     description: "A deep dive into how AWS Systems Manager (SSM) allows secure, port-less access to EC2 instances. Learn why SSM is safer than traditional SSH and how to implement it with IAM roles, logging, and session manager.",
     date: "November 4, 2025",
@@ -47,22 +63,6 @@ export const testimonialsData: BlogPost[] = [
     url: "https://medium.com/@codingvedant/hack-the-box-dog-htb-lab-walkthrough-guide-b603fb68204c",
     platform: "Medium",
     readTime: "4 min read"
-  },
-  {
-    title: "Exploiting the CloudGoat EC2 SSRF Scenario: From SSRF to Full AWS Compromise",
-    description: "A hands-on walkthrough of exploiting a vulnerable EC2 SSRF scenario in the CloudGoat AWS lab environment to chain from SSRF through metadata service abuse, credential harvesting, and ultimately full AWS cloud compromise.",
-    date: "November 21, 2025",
-    url: "https://medium.com/@codingvedant/exploiting-the-cloudgoat-ec2-ssrf-scenario-from-ssrf-to-full-aws-compromise-904b3d64e0b5",
-    platform: "Medium",
-    readTime: "4 min read"
-  },
-  {
-  "title": "Domain Join an Ubuntu Machine to an Active Directory",
-  "description": "A step-by-step guide to joining an Ubuntu machine to a Windows Server Active Directory domain, based on a hands-on multi-VM lab setup. The walkthrough covers common issues, required configurations, and the exact steps that worked in practice.",
-  "date": "December 19, 2025",
-  "url": "https://medium.com/@codingvedant/domain-join-an-ubuntu-machine-to-an-active-directory-34ea0a6b37bb",
-  "platform": "Medium",
-  "readTime": "3 min read"
   }
 
 ];
