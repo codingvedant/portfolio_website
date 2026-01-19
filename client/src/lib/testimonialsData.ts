@@ -9,6 +9,14 @@ export interface BlogPost {
 
 export const testimonialsData: BlogPost[] = [
   {
+    title: "Wiz x Cloud Security Championship — Perimeter Leak Walkthrough",
+    description: "A complete Hack The Box Dog machine walkthrough covering reconnaissance, exploiting exposed Git directories, RCE on Backdrop CMS, and privilege escalation via misconfigured binaries.",
+    date: "January 18, 2026",
+    url: "https://medium.com/@codingvedant/wiz-x-cloud-security-championship-perimeter-leak-c59b18bdbb17",
+    platform: "Medium",
+    readTime: "4 min read"
+  },
+  {
     title: "Domain Join an Ubuntu Machine to an Active Directory",
     description: "A step-by-step guide to joining an Ubuntu machine to a Windows Server Active Directory domain, based on a hands-on multi-VM lab setup. The walkthrough covers common issues, required configurations, and the exact steps that worked in practice.",
     date: "December 19, 2025",
@@ -64,6 +72,7 @@ export const testimonialsData: BlogPost[] = [
     platform: "Medium",
     readTime: "4 min read"
   }
+  
 
 ];
 
