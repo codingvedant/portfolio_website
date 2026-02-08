@@ -9,8 +9,32 @@ export interface BlogPost {
 
 export const testimonialsData: BlogPost[] = [
   {
+    title: "Wiz x Cloud Security Championship — Needle in a Haystack Walkthrough",
+    description: "A Wiz x Cloud Security CTF walkthrough focused on reconnaissance techniques and web-based challenges. Step-by-step guide to finding the needle in the haystack.",
+    date: "February 7, 2026",
+    url: "https://medium.com/@codingvedant/wiz-x-cloud-security-championship-needle-in-a-haystack-walkthrough-2883c8f04ccb",
+    platform: "Medium",
+    readTime: "4 min read"
+  },
+  {
+    title: "Wiz x Cloud Security Championship — Breaking the Barriers Walkthrough",
+    description: "Your first Azure CTF walkthrough in the Wiz x Cloud Security Championship. Covers breaking through Azure security barriers and cloud security reconnaissance.",
+    date: "January 28, 2026",
+    url: "https://medium.com/@codingvedant/wiz-x-cloud-security-championship-breaking-the-barriers-walkthrough-1f9768ba98fe",
+    platform: "Medium",
+    readTime: "4 min read"
+  },
+  {
+    title: "Wiz x Cloud Security Championship — Contain Me If You Can Walkthrough",
+    description: "A hard-level Wiz CTF walkthrough that tests container and cloud security skills. Full walkthrough of the Contain Me If You Can challenge.",
+    date: "January 24, 2026",
+    url: "https://medium.com/@codingvedant/wiz-x-cloud-security-championship-contain-me-if-you-can-walkthrough-2d579402a8b2",
+    platform: "Medium",
+    readTime: "5 min read"
+  },
+  {
     title: "Wiz x Cloud Security Championship — Perimeter Leak Walkthrough",
-    description: "A complete Hack The Box Dog machine walkthrough covering reconnaissance, exploiting exposed Git directories, RCE on Backdrop CMS, and privilege escalation via misconfigured binaries.",
+    description: "A New Year–themed Wiz CTF walkthrough covering perimeter security and cloud reconnaissance. Deepen your skills in cloud security domains.",
     date: "January 18, 2026",
     url: "https://medium.com/@codingvedant/wiz-x-cloud-security-championship-perimeter-leak-c59b18bdbb17",
     platform: "Medium",
