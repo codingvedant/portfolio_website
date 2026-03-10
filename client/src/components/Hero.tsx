@@ -61,7 +61,9 @@ export default function Hero() {
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Vulnerability Assessment</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Penetration Testing</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Threat Intelligence</p>
-            <p className="mb-3 text-white"><span className="text-[#00FF8C]">{'>'}</span> Endpoint Security</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Endpoint Security</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Governance, Risk &amp; Compliance (GRC)</p>
+            <p className="mb-3 text-white"><span className="text-[#00FF8C]">{'>'}</span> Risk Assessments</p>
             <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">echo $LOCATION</span></p>
             <p className="mb-3 text-white">College Park, United States</p>
             <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">cat contact.txt</span></p>
@@ -98,18 +100,6 @@ export default function Hero() {
               >
                 x.com/vedantb31
               </a>
-            </p>
-            <p className="mb-1"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">echo $RESUME</span></p>
-            <p className="mb-1 flex items-center">
-              <a 
-                href="/resume.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#00FF8C] hover:underline transition-colors duration-300 cursor-pointer"
-              >
-                /resume.pdf
-              </a>
-              <span className="ml-2 text-gray-500 text-sm">(click to view)</span>
             </p>
             <p className="mb-1 mt-3">
               <span className="text-[#00FF8C]">$</span> <span className="text-white">_</span>
