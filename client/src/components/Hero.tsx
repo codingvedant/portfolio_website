@@ -58,6 +58,7 @@ export default function Hero() {
             <p className="mb-2"><span className="text-[#00FF8C]">$</span> <span className="text-red-500">./get_profile.sh</span></p>
             <p className="mb-1 text-white">Cybersecurity professional with expertise in:</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Cloud Security (AWS, Azure, Google Cloud)</p>
+            <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> DevSecOps</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Vulnerability Assessment</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Penetration Testing</p>
             <p className="mb-1 text-white"><span className="text-[#00FF8C]">{'>'}</span> Threat Intelligence</p>

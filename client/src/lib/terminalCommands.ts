@@ -3,6 +3,7 @@ export const terminalCommands = {
     { text: '$ ./get_profile.sh', type: 'command', color: 'text-red-500' },
     { text: 'Cybersecurity professional with expertise in:', type: 'output' },
     { text: '> Cloud Security (AWS, Azure, Google Cloud)', type: 'output' },
+    { text: '> DevSecOps', type: 'output' },
     { text: '> Vulnerability Assessment', type: 'output' },
     { text: '> Penetration Testing', type: 'output' },
     { text: '> Threat Intelligence', type: 'output' },
