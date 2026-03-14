@@ -7,7 +7,7 @@ export const terminalCommands = {
     { text: '> Vulnerability Assessment', type: 'output' },
     { text: '> Penetration Testing', type: 'output' },
     { text: '> Threat Intelligence', type: 'output' },
-    { text: '> Endpoint Security', type: 'output' },
+    { text: '> Detection & Response', type: 'output' },
     { text: '> Governance, Risk & Compliance (GRC)', type: 'output' },
     { text: '> Risk Assessments', type: 'output' },
     { text: '$ echo $LOCATION', type: 'command', color: 'text-red-500' },
