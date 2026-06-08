@@ -3,7 +3,8 @@ import useTypewriter from "@/hooks/useTypewriter";
 
 export default function Hero() {
   const name = useTypewriter("VEDANT BHALERAO", 100);
-  const title = useTypewriter("Graduate student at the University of Maryland", 50, 1200);
+  const title = useTypewriter("Security Engineer Intern at Gallup", 50, 1200);
+  const subtitle = useTypewriter("Graduate student at UMD", 50, 2800);
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 relative overflow-hidden">
@@ -35,10 +36,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-3xl mx-auto mb-8"
+          className="max-w-3xl mx-auto mb-8 px-2"
         >
-          <p className="text-xl md:text-2xl font-light text-gray-300">
-            <span className="terminal-text">{title}</span>
+          <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-300 leading-relaxed">
+            <span className="terminal-text block">{title}</span>
+            <span className="terminal-text block text-gray-400 text-base sm:text-lg md:text-xl mt-1">{subtitle}</span>
           </p>
         </motion.div>
         

@@ -1,8 +1,20 @@
 export const experienceData = [
   {
+    company: "Gallup",
+    location: "Omaha, Nebraska, United States",
+    title: "Security Engineer Intern",
+    period: "May 2026 – Present",
+    icon: "ShieldPlus",
+    responsibilities: [
+      "Supporting enterprise security engineering initiatives across cloud and on-premises infrastructure",
+      "Contributing to vulnerability management, security monitoring, and incident response workflows",
+      "Collaborating with security teams to implement and maintain security controls and best practices"
+    ]
+  },
+  {
     company: "Iotian Technologies Pvt. Ltd.",
     location: "Pune, Maharashtra, India",
-    title: "Security Software Developer Intern",
+    title: "Cybersecurity Intern",
     period: "January 2025 – June 2025",
     icon: "ShieldCheck",
     responsibilities: [

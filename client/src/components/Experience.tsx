@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, ShieldAlert, CodeSquare } from "lucide-react";
+import { ShieldPlus, ShieldCheck, ShieldAlert, CodeSquare } from "lucide-react";
 import { experienceData } from "@/lib/experienceData";
 
 export default function Experience() {
@@ -19,14 +19,17 @@ export default function Experience() {
   };
 
   const icons = {
+    ShieldPlus: <ShieldPlus className="text-[#1A1A1A]" />,
     ShieldCheck: <ShieldCheck className="text-[#1A1A1A]" />,
     ShieldAlert: <ShieldAlert className="text-[#1A1A1A]" />,
-    CodeSquare: <CodeSquare className="text-[#1A1A1A]" />
+    CodeSquare: <CodeSquare className="text-[#1A1A1A]" />,
   };
 
   // Function to get the logo based on company name
   const getCompanyLogo = (company: string) => {
-    if (company.includes("Iotian")) {
+    if (company.includes("Gallup")) {
+      return "/gallup.jpeg";
+    } else if (company.includes("Iotian")) {
       return "/iotian.jpeg";
     } else if (company.includes("Larsen")) {
       return "/ltfs.jpeg";
@@ -70,12 +73,16 @@ export default function Experience() {
               >
                 <div className="flex flex-col md:flex-row items-center">
                   {/* Job Title and Duration - Always on the left */}
-                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right order-2 md:order-1">
-                    <div className="bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg mb-4 hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30">
-                      <h3 className="font-mono text-xl mb-2 text-white">
-                        <span className="text-[#00FF8C]">$</span> {experience.title}
-                      </h3>
-                      <p className="text-gray-400 mb-2">{experience.period}</p>
+                  <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 flex justify-center md:justify-end order-2 md:order-1">
+                    <div className="w-full max-w-sm bg-[#1A1A1A] bg-opacity-80 p-5 rounded-lg hover:shadow-lg hover:shadow-[#00FF8C]/10 transition-all duration-300 border border-[#00FF8C]/30 text-left">
+                      <div className="grid grid-cols-[auto_1fr] gap-x-1.5 gap-y-2">
+                        <span className="text-[#00FF8C] font-mono text-lg md:text-xl">$</span>
+                        <h3 className="font-mono text-lg md:text-xl text-white leading-snug">
+                          {experience.title}
+                        </h3>
+                        <span aria-hidden="true" />
+                        <p className="text-gray-400 text-sm md:text-base">{experience.period}</p>
+                      </div>
                     </div>
                   </div>
                   
